@@ -1,29 +1,72 @@
 <?php
 
 class Task{
-  private $User;
-  private $description;
+  private User $user;
+  private Array $comments = [];
+  private string $description;
   private DateTime $dateCreated;
   private DateTime $dateUpdated;
   private DateTime $dateDone; 
-  private int $priority;
+  private ?int $priority;
   private bool $isDone = false;
   
-  public function getDateDone()
+  function __construct(User $user, ?int $priority, string $description)
+  {
+    $this->user = $user;
+    $this->priority = $priority;
+    $this->description = $description;
+  }
+
+  public function getPriority(): ?int
+  {
+    return $this->priority;
+  }
+  public function setPriority(): ?int
+  {
+    $this->priority = $priority;
+  }
+
+  public function getDescription(): string
+  {
+    return $this->description;
+  }
+  
+  public function getDateDone(): DateTime
   {
     return $this->dateDone;
   }
 
-  public function getDateUpdated()
+  public function getDateUpdated(): DateTime
   { 
     
     return $this->dateUpdated;
   }
 
-  public function setDescription()
+  public function setDescription(): DateTime
   {
     $this->dateUpdated = new DateTime();
+    $this->description = $description;
     
+  }
+
+  public function setComment(Comment $comment): void
+  { 
+    $this->comments[] = $comment;
+  } 
+
+  public function getComment(): array
+  {
+    return $this->comments;
+  }
+
+  public function setUser(User $user): void
+  {
+    $this->user = $user;
+  }
+
+  public function getUser(): User
+  {
+    return $this->user = $user;
   }
 
   public function markAsDone()
@@ -38,6 +81,3 @@ class Task{
       ];
   }
 };
-
-$task = new Task();
-var_dump($task->markAsDone());
