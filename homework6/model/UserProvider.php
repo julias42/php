@@ -7,14 +7,12 @@ class UserProvider{
     'artyom' => '123'
   ];
 
-public function getByUsernameAndPassword(string $username, string $password): ?string
+public function getByUsernameAndPassword(string $username, string $password): ?User
 {
-  $expectedPassword = $this->accounts['username'] ?? null;
-  if ($expectedPassword === $password)
-  {
+  $expectedPassword = $this->accounts[$username] ?? null;
+  if ($expectedPassword === $password){
     return new User($username);
   }
   return null;
 }
-
 }

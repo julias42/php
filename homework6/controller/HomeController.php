@@ -1,13 +1,7 @@
 <?php
+require_once 'model/User.php';
 
-$pageHeader = 'Добро пожаловать';
+$pageHeader = 'Добро пожаловать в TODO';
 
-$username = null;
-if(isset($_SESSION['username'])){
-  $username = $_SESSION['username'];
-}elseif (isset($_REQUEST['username']) && !empty($_REQUEST['username'])){
-  $username = $_REQUEST['username'];
-  $_SESSION['username'] = $username;
-}
 require_once 'view/home.php';
 
