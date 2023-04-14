@@ -25,8 +25,7 @@
       <a href="/?controller=security">Войти</a>
     <?php else : ?>
      <p>Рады вас приветствовать, <?= $username ?>.</p><br>
-    <a href="/">Главная</a>
-    <a href="/?controller=task">Задачи</a> <a href="/?controller=security&action=logout">Выйти</a>
+    <a href="/?controller=tasks">Задачи</a> <a href="/?controller=security&action=logout">Выйти</a>
     <?php endif ?><br>
   </div>
 </body>
