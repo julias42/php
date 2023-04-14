@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
-    .container{
+    .container {
       height: 100vh;
     }
   </style>
@@ -21,7 +21,14 @@
     <h1>
       <?=$pageHeader?>
     </h1>
-    <?php include "menu.php"?>
+    <?php if (is_null($username)) : ?>
+      <a href="/?controller=security">Войти</a>
+    <?php else : ?>
+     <p>Рады вас приветствовать, <?= $username ?>.</p><br>
+    <a href="/">Главная</a>
+    <a href="/?controller=task">Задачи</a> <a href="/?controller=security&action=logout">Выйти</a>
+    <?php endif ?><br>
   </div>
 </body>
+
 </html>
