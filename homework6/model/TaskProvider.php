@@ -1,8 +1,11 @@
 <?php
 
+include_once 'model/Task.php';
+
 class TaskProvider
 {
   private array $tasks;
+
   public function __construct(){
     $this->tasks = $_SESSION['tasks'] ?? [];
   }
@@ -10,8 +13,8 @@ class TaskProvider
   public function getUndoneList(): array 
   {
     $tasks = [];
-    foreach($this->tasks as $key->task){
-      if(!$task->isDone()){
+    foreach ($this->tasks as $key => $task){
+      if(!$task->getIsDone()){
         $tasks[$key] = $task;
       }
     }
