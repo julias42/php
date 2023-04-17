@@ -25,26 +25,10 @@ class Product {
     {
         $this->title = $title;
     }
-
+    
     public function setPrice(float $price):void
     {
         $this->price = $price;
     }
-
-    public function addComponent(Product $components, int $count = 1):void    
-    {
-        $this->components[$product->getTitle()] = $count;
-    }
-
-    public function removeComponent(Product $components):void   
-    {
-        unset($this->components[$component->getTitle()]);
-    }
-
-    public function getComponent():array
-    {
-        return $this->components;
-    }
-    
 
 }
